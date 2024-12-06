@@ -25,10 +25,12 @@ GRASS comes with its own commands, but it can also be used with Python scripts. 
 The library you need to import in your Python script is called [grass.script](https://grass.osgeo.org/grass-stable/manuals/libpython/script_intro.html). There is no need to install the package using pip or conda; it comes with the GRASS installation. (Note: If you try to run the script in a Python IDE, it might not recognize the library, but if you run it through the GRASS user interface, it will run without error. I will explain how to do that next.) In the Tools panel of the GRASS interface, use the Python tab to change directories into wherever your script is located. Then in Console, type `python3 grassScript.py`, where grassScript is the file name of your script, which will run your script. If you don't want to type these commands, you could also go to **File > Launch script**. 
 
 The syntax when running GRASS commands in Python is different from just running them in the GRASS interface. Let's say you want to run the command [g.region](https://grass.osgeo.org/grass-stable/manuals/g.region.html), which sets the computational region. In the GRASS Console, you would type in whatever flags and parameters you need, like `g.region -pm raster=elevation --verbose`. In a Python script, this would be:
-`
-import grass.script as gs  # only needed once
+
+```
+import grass.script as gs  # only needed once 
 gs.run_command("g.region", flags='pm', raster='elevation', verbose=True)
-`
+```
+
 If you look at the documentation of any GRASS command, the flags with a single dash (like -p and -m in this example) go into `flags='pm'`, while the flags with two dashes (like --verbose) are turned on or off with the Boolean `verbose=True`. 
 
 Finally, if your script uses something like NumPy or Pandas to process data, you may need to install them using Grass's Python tab, even if you have installed them on your computer already (there may be a way to avoid re-installation and just change directories, but I haven't figured it out yet.) In the Console tab, type `python3 -m pip install pandas` (or whichever package you want to install).
