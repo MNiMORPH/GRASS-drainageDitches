@@ -47,5 +47,5 @@ It loops through each rectangular bounding box, and outputs a file with the DEM 
 
 I used Python to view an example result and overlay the sub-watershed boundary over the rectangular region.
 
-
+![Elevation map with overlaid watershed boundary.](HUC8_07080102_padded.png?raw=true "HUC8_07080102")
   
