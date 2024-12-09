@@ -37,6 +37,8 @@ Finally, if your script uses something like NumPy or Pandas to process data, you
 
 ### Notes about the code
 
+The Python script is called [grassScript.py](https://github.com/MNiMORPH/GRASS-drainageDitches/blob/main/grassScript.py).
+
 The program starts by calculating the northern, southern, eastern, and western extents of each sub-watershed. These extents are often decimals, which can cause interpolation errors. We want to round them to a whole number (round up for north and east, and round down for south and west.) Then, we will pad these extents by 100m to prevent any edge effects from the model, eventually creating a padded rectangular box around each sub-watershed.
 
 It then creates a link to the DEM data, keeping it external so it doesn't have to read it all in. 
@@ -45,7 +47,7 @@ It loops through each rectangular bounding box, and outputs a file with the DEM 
 
 ### Results
 
-I used Python to view an example result and overlay the sub-watershed boundary over the rectangular region.
+I used Python ([plotResults.py](https://github.com/MNiMORPH/GRASS-drainageDitches/blob/main/plotResults.py)) to view an example result and overlay the sub-watershed boundary over the rectangular region, but you could use GIS for this too. Note that in Python, you need the [geopandas](https://geopandas.org/en/stable/getting_started/install.html) and [rioxarray](https://corteva.github.io/rioxarray/html/installation.html) modules. 
 
 ![Elevation map with overlaid watershed boundary.](HUC8_07080102_padded.png?raw=true "HUC8_07080102")
   
