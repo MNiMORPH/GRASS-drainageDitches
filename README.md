@@ -2,7 +2,7 @@
 Using Grass GIS to split up a large dataset into sub-watersheds.
 
 ### Research problem, and data sources
-The goal is to find sites for drainage ditch removal (and therefore wetland restoration) in Minnesota. Using an elevation map, we want to run a model that shows where water pools and flows in the landscape, giving us the current wetland extent. Later, we will simulate removing the drainage ditches, and see how this changes wetland extent and hydrological connectivity.
+The goal is to find sites for drainage ditch removal (and therefore wetland restoration) in Minnesota. Using an elevation map, we want to run a model ([Fill-Spill-Merge](https://github.com/r-barnes/Barnes2020-FillSpillMerge.git)) that shows where water pools and flows in the landscape, giving us the current wetland extent. Later, we will simulate removing the drainage ditches, and see how this changes wetland extent and hydrological connectivity.
 
 #### **_Data sources_**
 - **Minnesota digital elevation model (DEM)**. I am using 1-m resolution elevation data. In GIS, this is an example of **raster** data, because the shape of Minnesota is filled in with evenly-spaced elevation data. (Think of a coloring page that has been colored in: raster data are like the continuous colors inside the lines.) Raster data often comes with the .tif file extension.
@@ -39,7 +39,7 @@ Finally, if your script uses something like NumPy or Pandas to process data, you
 
 The Python script is called [grassScript.py](https://github.com/MNiMORPH/GRASS-drainageDitches/blob/main/grassScript.py).
 
-The program starts by calculating the northern, southern, eastern, and western extents of each sub-watershed. These extents are often decimals, which can cause interpolation errors. We want to round them to a whole number (round up for north and east, and round down for south and west.) Then, we will pad these extents by 100m to prevent any edge effects from the model, eventually creating a padded rectangular box around each sub-watershed.
+The program starts by calculating the northern, southern, eastern, and western extents of each sub-watershed. These extents are often decimals, which can cause errors later on, in which the model incorrectly interpolates between them. To avoid this, we want to round them to a whole number now (round up for north and east, and round down for south and west.) Then, we will pad these extents by 100m to prevent any edge effects from the model, eventually creating a padded rectangular box around each sub-watershed.
 
 It then creates a link to the DEM data, keeping it external so it doesn't have to read it all in. 
 
