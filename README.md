@@ -1,5 +1,5 @@
 # GRASS-drainageDitches
-Using Grass GIS to split up a large dataset into sub-watersheds.
+Using Grass GIS to split up a large dataset into sub-watersheds. Featuring some things I learned about Grass GIS and GIS in general.
 
 ### Research problem, and data sources
 The goal is to find sites for drainage ditch removal (and therefore wetland restoration) in Minnesota. Using an elevation map, we want to run a model ([Fill-Spill-Merge](https://github.com/r-barnes/Barnes2020-FillSpillMerge.git)) that shows where water pools and flows in the landscape, giving us the current wetland extent. Later, we will simulate removing the drainage ditches, and see how this changes wetland extent and hydrological connectivity.
