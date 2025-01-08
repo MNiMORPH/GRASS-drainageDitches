@@ -64,7 +64,7 @@ def clipSubWS(n, s, e, w, filesName):
     
     # Write DEM data to file - only writes current region
     gs.run_command('r.out.gdal', input=dataName, output=outDir + filesName+'.tif', \
-                   type='Float32', format='GTiff', createopt="COMPRESS=LZW,BIGTIFF=YES", flags='f')
+                   format='GTiff', createopt="COMPRESS=LZW,BIGTIFF=YES")
     
 #%% Loop through subwatersheds to extract data
 
